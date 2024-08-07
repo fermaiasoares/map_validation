@@ -10,6 +10,7 @@ class BooleanValidator<T> extends Validator<T> {
     this.requiredMessage,
     this.invalidMessage,
     super.locale,
+    required super.fieldName,
   });
 
   @override

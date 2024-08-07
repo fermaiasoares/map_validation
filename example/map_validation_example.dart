@@ -4,11 +4,13 @@ void main() {
   // Definindo o esquema de validação
   final schema = ValidatorSchema({
     'is_active': BooleanValidator(
+      fieldName: 'is_active',
       isRequired: true,
       requiredMessage: 'O campo ativo é obrigatório.',
       invalidMessage: 'O valor deve ser um booleano.',
     ),
     'start_date': DateValidator(
+      fieldName: 'start_date',
       minDate: DateTime(2023, 1, 1),
       maxDate: DateTime(2024, 12, 31),
       isRequired: true,
@@ -17,6 +19,7 @@ void main() {
       maxDateMessage: 'A data deve ser antes de {maxDate}.',
     ),
     'total_amount': NumberValidator(
+      fieldName: 'total_amount',
       min: 10,
       max: 1000,
       isInteger: true,
@@ -26,6 +29,7 @@ void main() {
       maxMessage: 'O valor não deve exceder {max}.',
     ),
     'discount_code': NumberValidator(
+      fieldName: 'discount_code',
       isRequired: false, // Opcional
       isInteger: false, // Pode ser decimal
       min: 0,

@@ -21,6 +21,7 @@ class NumberValidator extends Validator<num> {
     this.maxMessage,
     this.integerMessage,
     super.locale,
+    required super.fieldName,
   });
 
   @override

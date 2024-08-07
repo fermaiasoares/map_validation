@@ -26,6 +26,8 @@ class StringValidator extends Validator<String> {
     this.integerMessage,
     this.patternMessage,
     this.invalidEmailMessage,
+    super.locale,
+    required super.fieldName,
   });
 
   @override

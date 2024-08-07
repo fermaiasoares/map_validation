@@ -2,10 +2,14 @@ import 'package:map_validation/src/errors_i18n.dart';
 import 'package:map_validation/src/validator_exception.dart';
 
 abstract class Validator<T> {
-  List<String> errors = [];
+  Map<String, dynamic> errors = {};
   String locale;
+  String fieldName;
 
-  Validator({this.locale = 'en'});
+  Validator({
+    this.locale = 'en',
+    required this.fieldName,
+  });
 
   bool validate(T? value, [Map<String, dynamic>? data]);
 
@@ -28,7 +32,8 @@ abstract class Validator<T> {
       });
     }
 
-    errors.add(message);
+    errors.putIfAbsent(fieldName, () => []);
+    errors[fieldName]!.add(message);
   }
 
   void clearErrors() {
@@ -37,7 +42,7 @@ abstract class Validator<T> {
 
   void throwIfInvalid(T? value, [Map<String, dynamic>? data]) {
     if (!validate(value, data)) {
-      throw ValidatorException({runtimeType.toString(): errors});
+      throw ValidatorException(errors);
     }
   }
 }

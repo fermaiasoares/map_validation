@@ -4,7 +4,11 @@ import 'package:map_validation/map_validation.dart';
 class MultiValidator<T> extends Validator<T> {
   final List<Validator<T>> validators;
 
-  MultiValidator(this.validators);
+  MultiValidator(
+    this.validators, {
+    required super.fieldName,
+    super.locale,
+  });
 
   @override
   bool validate(T? value, [Map<String, dynamic>? data]) {

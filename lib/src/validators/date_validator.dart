@@ -16,6 +16,7 @@ class DateValidator extends Validator<DateTime> {
     this.minDateMessage,
     this.maxDateMessage,
     super.locale,
+    required super.fieldName,
   });
 
   @override

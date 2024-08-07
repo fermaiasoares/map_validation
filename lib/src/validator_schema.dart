@@ -1,5 +1,4 @@
-import 'package:map_validation/src/validator.dart';
-import 'package:map_validation/src/validator_exception.dart';
+import 'package:map_validation/map_validation.dart';
 
 class ValidatorSchema {
   final Map<String, Validator> validators;
@@ -15,15 +14,11 @@ class ValidatorSchema {
   }
 
   void validate(Map<String, dynamic> data) {
-    Map<String, List<String>> errors = {};
+    Map<String, dynamic> errors = {};
 
     validators.forEach((key, validator) {
-      try {
-        validator.throwIfInvalid(data[key], data);
-      } catch (e) {
-        if (e is ValidatorException) {
-          errors[key] = validator.errors;
-        }
+      if (!validator.validate(data[key], data)) {
+        errors[key] = validator.errors[validator.fieldName]!;
       }
     });
 

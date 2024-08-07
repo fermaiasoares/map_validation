@@ -8,6 +8,7 @@ void main() {
   test('BooleanValidator - Valid boolean value', () {
     final schema = ValidatorSchema({
       'is_active': BooleanValidator(
+        fieldName: 'is_active',
         isRequired: true,
       ),
     }, locale: 'pt_BR');
@@ -21,7 +22,10 @@ void main() {
 
   test('BooleanValidator - Invalid boolean value', () {
     final schema = ValidatorSchema({
-      'is_active': BooleanValidator(isRequired: true),
+      'is_active': BooleanValidator(
+        fieldName: 'is_active',
+        isRequired: true,
+      ),
     }, locale: 'pt_BR');
 
     final invalidData = {
@@ -36,7 +40,10 @@ void main() {
 
   test('BooleanValidator - Missing required item', () {
     final schema = ValidatorSchema({
-      'is_active': BooleanValidator(isRequired: true),
+      'is_active': BooleanValidator(
+        fieldName: 'is_active',
+        isRequired: true,
+      ),
     }, locale: 'pt_BR');
 
     final invalidData = <String, dynamic>{};
@@ -49,7 +56,10 @@ void main() {
 
   test('BooleanValidator - Missing required value', () {
     final schema = ValidatorSchema({
-      'is_active': BooleanValidator(isRequired: true),
+      'is_active': BooleanValidator(
+        fieldName: 'is_active',
+        isRequired: true,
+      ),
     }, locale: 'pt_BR');
 
     final invalidData = {'is_active': null};

@@ -15,6 +15,7 @@ class ConditionalValidator<T, K> extends Validator<T> {
     this.errorMessageKey = 'condition_failed',
     this.customMessage,
     super.locale,
+    required super.fieldName,
   });
 
   @override
