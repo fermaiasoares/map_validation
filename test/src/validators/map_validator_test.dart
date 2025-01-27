@@ -33,12 +33,12 @@ void main() {
       'hobbies': ListValidator(
         locale: 'pt_BR',
         isRequired: true,
+        fieldName: 'hobbies',
         StringValidator(
           fieldName: 'hobbies',
           minLength: 3,
           maxLength: 50,
         ),
-        fieldName: 'hobbies',
       ),
     });
 

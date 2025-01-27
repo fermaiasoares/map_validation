@@ -1,6 +1,6 @@
 name: map_validation
 description: O pacote Map Validation fornece uma maneira flexível e extensível de validar dados de um `Map` em Dart, inspirado no Joi.js. Permite criar esquemas de validação com suporte a tipos variados, mensagens de erro personalizadas e internacionalização.
-version: 1.0.0
+version: 1.2.0
 repository: https://github.com/fermaiasoares/map_validation
 
 environment:
